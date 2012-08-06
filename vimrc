@@ -102,6 +102,8 @@ au FileType html compiler tidy
 au BufRead,BufNewFile *.scss set filetype=scss
 au FileType asp compiler tidy
 au BufNewFile,BufRead *.asp set filetype=xhtml
+au BufNewFile,BufRead *.master set filetype=xhtml
+au BufNewFile,BufRead *.cshtml set filetype=xhtml
 
 setlocal equalprg=tidy\ --output-xhtml\ y\ -utf8\ --wrap-attributes\ 1\ --vertical-space\ 1\ --indent\ auto\ --wrap\ 0\ --show-body-only\ auto\ --preserve-entities\ 1\ -q\ -f\ /tmp/err
 autocmd BufReadPre *.doc set ro
@@ -114,7 +116,7 @@ set cursorline
 
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Bitstream\ Vera\ Sans\ Mono \14
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 14
   elseif has("gui_photon")
     set guifont=Bitstream\ Vera\ Sans\ Mono:h14
   elseif has("gui_kde")
