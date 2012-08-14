@@ -149,3 +149,6 @@ function! RunCommands()
 endfunction
 command -range RunCommands <line1>,<line2>call RunCommands()
 vmap ,r :RunCommands<CR>
+
+:map <F1> <Esc>
+:imap <F1> <Esc>
