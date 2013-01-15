@@ -2,8 +2,8 @@
 "
 " Author:      Christian J. Robinson <heptite@gmail.com>
 " URL:         http://christianrobinson.name/vim/HTML/
-" Last Change: October 13, 2011
-" Version:     0.40.0
+" Last Change: November 26, 2012
+" Version:     0.40.1
 " Original Concept: Doug Renze
 "
 "
@@ -52,7 +52,7 @@
 " - Add :HTMLmappingsreload/html/xhtml to the HTML menu?
 "
 " ---- RCS Information: ------------------------------------------------- {{{1
-" $Id: HTML.vim,v 1.231 2011/10/13 19:41:14 infynity Exp $
+" $Id: HTML.vim,v 1.232 2012/11/26 07:09:20 infynity Exp $
 " ----------------------------------------------------------------------- }}}1
 
 " ---- Initialization: -------------------------------------------------- {{{1
@@ -2427,8 +2427,10 @@ endfunction
 
 if ! s:BoolVar('g:no_html_toolbar') && has("toolbar")
 
-  if ((has("win32") || has('win64')) && globpath(&rtp, 'bitmaps/Browser.bmp') == '')
-      \ || globpath(&rtp, 'bitmaps/Browser.xpm') == ''
+  "if ((has("win32") || has('win64')) && globpath(&rtp, 'bitmaps/Browser.bmp') == '')
+  "    \ || globpath(&rtp, 'bitmaps/Browser.xpm') == ''
+  if ((has("win32") || has('win64')) && findfile('bitmaps/Browser.bmp', &rtp) == '')
+      \ || findfile('bitmaps/Browser.xpm', &rtp) == ''
     let s:tmp = "Warning:\nYou need to install the Toolbar Bitmaps for the "
           \ . fnamemodify(s:thisfile, ':t') . " plugin. "
           \ . "See: http://christianrobinson.name/vim/HTML/#files\n"

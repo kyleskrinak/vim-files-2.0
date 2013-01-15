@@ -1,3 +1,5 @@
+" More info
+" https://github.com/dexteryy/yy-vimscript
 " usage:
 " set indentexpr=scss_indent#GetIndent(v:lnum)
 fun! scss_indent#GetIndent(lnum)
