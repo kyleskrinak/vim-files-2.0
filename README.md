@@ -6,6 +6,8 @@ This is my vim configuration, portable across mac, windows and ?nix. See this fo
 ##To use
 
 1. clone to $HOME
+2. Delete (or archive) your existing $HOME/.vim directory
+3. mv vim-files-2.0 $HOME/.vim
 2. create $HOME/.vimrc and add "runtime vimrc" to that file.
 
 That's it
