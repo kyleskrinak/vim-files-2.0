@@ -127,6 +127,8 @@ if has("gui_running")
     set guifont=Bitstream\ Vera\ Sans\ Mono\14/-1/5/50/0/0/0/1/0
   elseif has("x11")
     set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
+  elseif has("gui_macvim")
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h14
   else
     set guifont=Bitstream\ Vera\ Sans\ Mono:h14:cDEFAULT
   endif
