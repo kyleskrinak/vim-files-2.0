@@ -158,3 +158,5 @@ vmap ,r :RunCommands<CR>
 
 :map <F1> <Esc>
 :imap <F1> <Esc>
+
+execute pathogen#infect()
