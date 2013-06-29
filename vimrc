@@ -106,9 +106,9 @@ au BufNewFile,BufRead *.master set filetype=xhtml
 au BufNewFile,BufRead *.cshtml set filetype=xhtml
 
 if has ("win32unix")
-  setlocal equalprg=tidy\ --output-xhtml\ y\ -utf8\ --wrap-attributes\ 1\ --vertical-space\ 1\ --indent\ auto\ --wrap\ 0\ --show-body-only\ auto\ --preserve-entities\ 1\ -q\ -f\ "shellpipe=2>"
+  setlocal equalprg=tidy\ --output-xhtml\ y\ -utf8\ --wrap-attributes\ 1\ --vertical-space\ 0\ --indent\ auto\ --wrap\ 0\ --show-body-only\ auto\ --preserve-entities\ 1\ -q\ -f\ "shellpipe=2>"
 else
-  setlocal equalprg=tidy\ --output-xhtml\ y\ -utf8\ --wrap-attributes\ 1\ --vertical-space\ 1\ --indent\ auto\ --wrap\ 0\ --show-body-only\ auto\ --preserve-entities\ 1\ -q\ -f\ /tmp/err
+  setlocal equalprg=tidy\ --output-xhtml\ y\ -utf8\ --wrap-attributes\ 1\ --vertical-space\ 0\ --indent\ auto\ --wrap\ 0\ --show-body-only\ auto\ --preserve-entities\ 1\ -q\ -f\ /tmp/err
 endif
 autocmd BufReadPre *.doc set ro
 autocmd BufReadPre *.doc set hlsearch!
