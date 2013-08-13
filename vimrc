@@ -160,3 +160,12 @@ vmap ,r :RunCommands<CR>
 :imap <F1> <Esc>
 
 execute pathogen#infect()
+
+function! FormatTTS()
+  % s/\n/\r\r/g
+  % s/\n\n\n\n/\r\r/g
+  % s/[^[:alnum:][:punct:][:space:]]//ge
+  % s/\n\n/\r[[slnc 2000]]\r/ge
+endfunction
+
+nmap \F :call FormatTTS()<CR>
