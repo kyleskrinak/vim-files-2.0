@@ -98,17 +98,17 @@ endif
 
 colorscheme koehler
 
-au FileType html compiler tidy
+au FileType html compiler tidyp
 au BufRead,BufNewFile *.scss set filetype=scss
-au FileType asp compiler tidy
+au FileType asp compiler tidyp
 au BufNewFile,BufRead *.asp set filetype=xhtml
 au BufNewFile,BufRead *.master set filetype=xhtml
 au BufNewFile,BufRead *.cshtml set filetype=xhtml
 
 if has ("win32unix")
-  setlocal equalprg=tidy\ --output-xhtml\ y\ -utf8\ --wrap-attributes\ 1\ --vertical-space\ 0\ --indent\ auto\ --wrap\ 0\ --show-body-only\ auto\ --preserve-entities\ 1\ -q\ -f\ "shellpipe=2>"
+  setlocal equalprg=tidyp\ --output-xhtml\ y\ -utf8\ --wrap-attributes\ 1\ --vertical-space\ 0\ --indent\ auto\ --wrap\ 0\ --show-body-only\ auto\ --preserve-entities\ 1\ -q\ -f\ "shellpipe=2>"
 else
-  setlocal equalprg=tidy\ --output-xhtml\ y\ -utf8\ --wrap-attributes\ 1\ --vertical-space\ 0\ --indent\ auto\ --wrap\ 0\ --show-body-only\ auto\ --preserve-entities\ 1\ -q\ -f\ /tmp/err
+  setlocal equalprg=tidyp\ --output-xhtml\ y\ -utf8\ --wrap-attributes\ 1\ --vertical-space\ 0\ --indent\ auto\ --wrap\ 0\ --show-body-only\ auto\ --preserve-entities\ 1\ -q\ -f\ /tmp/err
 endif
 autocmd BufReadPre *.doc set ro
 autocmd BufReadPre *.doc set hlsearch!
