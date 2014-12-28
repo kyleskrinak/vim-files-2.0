@@ -62,6 +62,10 @@ function! repeat#set(sequence,...)
     let g:repeat_sequence = a:sequence
     let g:repeat_count = a:0 ? a:1 : v:count
     let g:repeat_tick = b:changedtick
+    augroup repeat_custom_motion
+        autocmd!
+        autocmd CursorMoved <buffer> let g:repeat_tick = b:changedtick | autocmd! repeat_custom_motion
+    augroup END
 endfunction
 
 function! repeat#setreg(sequence,register)
@@ -93,7 +97,7 @@ endfunction
 
 function! repeat#wrap(command,count)
     let preserve = (g:repeat_tick == b:changedtick)
-    exe 'norm! '.(a:count ? a:count : '').a:command . (&foldopen =~# 'undo' ? 'zv' : '')
+    exe 'norm! '.(a:count ? a:count : '').a:command . (&foldopen =~# 'undo\|all' ? 'zv' : '')
     if preserve
         let g:repeat_tick = b:changedtick
     endif
