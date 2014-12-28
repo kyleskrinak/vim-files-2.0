@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-haml'
+Plugin 'timcharper/textile.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -123,7 +124,7 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-colorscheme koehler
+colorscheme xoria256
 
 au BufRead,BufNewFile *.scss set filetype=scss
 
