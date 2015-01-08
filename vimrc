@@ -17,6 +17,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
 Plugin 'timcharper/textile.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
@@ -164,7 +165,11 @@ if has("gui_running")
 endif
 
 map ,nt :NERDTreeToggle<CR> " nerdtree commands
+
+" set base coding format
+set ts=2
 set sw=2
+set expandtab
 
 " run the current visual selection as a command
 " from my stackexchange question, here: http://tinyurl.com/lfxeobh
@@ -191,10 +196,10 @@ nmap \F :call FormatTTS()<CR>
 
 " The contents of this file are mostly from a Gist by Tim Pope
 " (https://gist.github.com/287147) with minor adjustments.
- 
-inoremap <buffer> <silent> <bar> <bar><esc>:call <sid>TabularizeCucumberTables()<cr>a
- 
-function! s:TabularizeCucumberTables()
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
     let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))

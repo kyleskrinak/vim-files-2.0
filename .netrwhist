@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/administrator/.vim-bu/ftdetect'
 let g:netrw_dirhist_2='/home/drupalpro/.vim/.git'
 let g:netrw_dirhist_3='/home/drupalpro/.vim'
 let g:netrw_dirhist_4='/home/drupalpro/.vim/.git'
+let g:netrw_dirhist_5='/Users/kds38/Documents/Duke/it.duke.edu/tts-it-theme/themes/it'
