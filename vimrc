@@ -10,10 +10,15 @@ else
   set rtp+=~/.vim/bundle/Vundle.vim
   call vundle#begin()
 endif
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" FIX: PluginUpdate => git pull: git-sh-setup: No such file or directory in MacVim (OK in non-GUI version of Vim)
+if has("gui_macvim")
+    set shell=/bin/bash\ -l
+endif
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+" 
+" " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 " The following are examples of different formats supported.
