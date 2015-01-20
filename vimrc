@@ -2,8 +2,11 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+set rtp+=~/vimfiles/bundle/Vundle.vim/
+let path='~/vimfiles/bundle'
+call vundle#begin(path)
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -22,12 +25,14 @@ Plugin 'timcharper/textile.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+if !has("win32")
 Plugin 'vimoutliner/vimoutliner'
+Plugin 'HTML.zip'
+endif
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 Plugin 'xoria256.vim'
 Plugin 'bufexplorer.zip'
-Plugin 'HTML.zip'
 Plugin 'HTML5-Syntax-File'
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
