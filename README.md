@@ -4,9 +4,11 @@ This revision marks my change from pathogen to [Vundle.](https://github.com/gmar
 
 ### Installation process:  
 1. Replace the existing $HOME/.vim with `git clone https://github.com/kyleskrinak/vim-files-2.0 .vim`
+    1. On Windows, with mingw, use "vimfiles" instead of .vim
 1. The only submodule tracked is Vundle.vim — which will load all plugins after installation, as per the vimrc
 1. Create a $HOME/.vimrc with the contents `runtime vimrc`
-1. `cd .vim`
+    1. On Windows, use "_vimrc" instead of ".vimrc"
+1. `cd .vim` (or `cd vimfiles` on Windows)
 1. `git submodule init`
 1. `git submodule update`
 1. Launch vim — with an xoria error
