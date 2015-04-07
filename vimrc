@@ -2,14 +2,10 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-if has("win32")
-  set rtp+=~/vimfiles/bundle/Vundle.vim/
-  let path='~/vimfiles/bundle'
-  call vundle#begin(path)
-else
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
-endif
+
+let dotvimdir=split(&rtp,',')[0]
+let &rtp.=','.dotvimdir.'/bundle/Vundle.vim'
+call vundle#begin(dotvimdir.'/bundle')
 
 " FIX: PluginUpdate => git pull: git-sh-setup: No such file or directory in MacVim (OK in non-GUI version of Vim)
 if has("gui_macvim")
@@ -105,6 +101,9 @@ if has("autocmd")
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
+
+  autocmd BufRead,BufNewFile *.md,*.markdown setlocal spell
+  set complete+=kspell
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
