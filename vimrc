@@ -24,6 +24,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-surround'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Chiel92/vim-autoformat'
 Plugin 'mattn/emmet-vim'
 Plugin 'timcharper/textile.vim'
 Plugin 'scrooloose/nerdtree'
@@ -31,7 +33,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 if !has("win32")
 Plugin 'vimoutliner/vimoutliner'
-Plugin 'HTML.zip'
+" Plugin 'HTML.zip'
 endif
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -138,7 +140,13 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-colorscheme xoria256
+" colorscheme xoria256
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized
 
 au BufRead,BufNewFile *.scss set filetype=scss
 
@@ -168,7 +176,7 @@ if has("gui_running")
 endif
 
 " Configuration specific to the HTML.vim plugin
-let g:html_tag_case="l"          " html.vim: use lower case html tags
+" let g:html_tag_case="l"          " html.vim: use lower case html tags
 
 " Set the first GUI window like this
 if has("gui_running")
@@ -195,6 +203,8 @@ vmap ,r :RunCommands<CR>
 :map <F1> <Esc>
 :imap <F1> <Esc>
 
+:iab <expr> dts strftime("%m/%d")
+
 " a handy function for formatting clipboard text
 " to a more text-to-speach friendly format
 function! FormatTTS()
@@ -205,6 +215,21 @@ function! FormatTTS()
 endfunction
 
 nmap \F :call FormatTTS()<CR>
+
+" prep html-tagged code into plain text
+function! StripHTML()
+  % ! html2textpy.py --ignore-links --ignore-images
+  % s/|/ /g
+  % s/\W\{2,\}/ /g
+  % s/^\W*//g
+  % s/\n\{2,\}/[break]/g
+  % s/\n/ /g
+  % s/\[break\]/\r\r/g
+  g/If this email is difficult to read view it on the web/d
+  g/View this email in your browser/d
+endfunction
+
+nmap \G :call StripHTML()<CR>
 
 " The contents of this file are mostly from a Gist by Tim Pope
 " (https://gist.github.com/287147) with minor adjustments.
