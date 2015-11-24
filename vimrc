@@ -31,6 +31,7 @@ Plugin 'timcharper/textile.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'evidens/vim-twig'
 if !has("win32")
 Plugin 'vimoutliner/vimoutliner'
 " Plugin 'HTML.zip'
@@ -142,7 +143,7 @@ endif
 
 " colorscheme xoria256
 if has('gui_running')
-    set background=light
+    set background=dark
 else
     set background=dark
 endif
