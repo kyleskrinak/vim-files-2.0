@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/kds38'
+let g:netrw_dirhist_2='/Users/kds38/Documents/sci/RSGear/rsgear-siteground/themes/rsgear/templates'
+let g:netrw_dirhist_3='/Users/kds38/Projects/minimal-mistakes'
+let g:netrw_dirhist_4='/Users/kds38/Projects/drumeka2.docksal/.docksal'
+let g:netrw_dirhist_5='/Users/kds38/Projects/drumeka2.docksal/docroot/sites/drumeka2-dev.trinity.duke.edu/themes/ttssub'
+let g:netrw_dirhist_6='/Users/kds38/Projects/globaled'
+let g:netrw_dirhist_7='/Users/kds38/Projects/ami/docroot/sites/ami.duke.edu/modules/html_scraper/.idea'
+let g:netrw_dirhist_8='/Users/kds38/Projects/cronicas/.docksal'

@@ -32,6 +32,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'evidens/vim-twig'
+Plugin 'falstro/ghost-text-vim'
+Plugin 'vim-scripts/diffchar.vim'
 if !has("win32")
 Plugin 'vimoutliner/vimoutliner'
 " Plugin 'HTML.zip'
