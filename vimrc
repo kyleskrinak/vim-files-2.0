@@ -149,7 +149,7 @@ if has('gui_running')
 else
     set background=dark
 endif
-colorscheme solarized
+colorscheme darkblue
 
 au BufRead,BufNewFile *.scss set filetype=scss
 
