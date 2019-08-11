@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set encoding=utf-8
 
 " set the runtime path to include Vundle and initialize
 
@@ -34,6 +35,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'evidens/vim-twig'
 Plugin 'falstro/ghost-text-vim'
 Plugin 'vim-scripts/diffchar.vim'
+Plugin 'shime/vim-livedown'
 if !has("win32")
 Plugin 'vimoutliner/vimoutliner'
 " Plugin 'HTML.zip'
@@ -162,21 +164,7 @@ autocmd BufRead *.safari setfiletype html
 set lbr
 set cursorline
 
-if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 14
-  elseif has("gui_photon")
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h14
-  elseif has("gui_kde")
-    set guifont=Bitstream\ Vera\ Sans\ Mono\14/-1/5/50/0/0/0/1/0
-  elseif has("x11")
-    set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
-  elseif has("gui_macvim")
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h14
-  else
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h14:cDEFAULT
-  endif
-endif
+set guifont=Hack:h14:cANSI:qDRAFT
 
 " Configuration specific to the HTML.vim plugin
 " let g:html_tag_case="l"          " html.vim: use lower case html tags
@@ -214,20 +202,30 @@ function! FormatTTS()
   % s/\n/\r\r/g
   % s/\n\n\n\n/\r\r/g
   % s/[^[:alnum:][:punct:][:space:]]//ge
-  % s/\n\n/\r[[slnc 2000]]\r/ge
+  % s/\n\n/\r<silence msec="2000"\/>\r/ge
 endfunction
 
 nmap \F :call FormatTTS()<CR>
 
 " prep html-tagged code into plain text
 function! StripHTML()
-  % ! html2textpy.py --ignore-links --ignore-images
+"  % ! html2textpy.py --ignore-links --ignore-images
+  g/<script/ .,/script>/d
+  g/"facebook-share pw-button-facebook"/d
+  g/"twitter-share pw-button-twitter"/d
+  g/"google-plus cf pw-button-googleplus"/d
+  % s/<blockquote.*>/[break][Start of quote]/g
+  % s/<\/blockquote>/[break][End of quote][break]/g
+  % s/&nbsp;/ /g
+  % s/<\_.\{-1,\}>//g
   % s/|/ /g
-  % s/\W\{2,\}/ /g
-  % s/^\W*//g
+  % s/\s\{2,\}/ /g
+  % s/^[\t ]*//g
   % s/\n\{2,\}/[break]/g
   % s/\n/ /g
   % s/\[break\]/\r\r/g
+  % s/\[Start of quote\]/<prosody pitch="low">Start of quote/g
+  % s/\[End of quote\]/End of quote<\/prosody>/g
   g/If this email is difficult to read view it on the web/d
   g/View this email in your browser/d
 endfunction
