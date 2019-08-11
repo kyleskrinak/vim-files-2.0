@@ -40,7 +40,7 @@ Plugin 'vimoutliner/vimoutliner'
 endif
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
-Plugin 'xoria256.vim'
+" Plugin 'xoria256.vim'
 Plugin 'bufexplorer.zip'
 Plugin 'HTML5-Syntax-File'
 " Git plugin not hosted on GitHub
