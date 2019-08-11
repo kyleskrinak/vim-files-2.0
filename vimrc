@@ -149,7 +149,7 @@ if has('gui_running')
 else
     set background=dark
 endif
-colorscheme darkblue
+colorscheme solarized
 
 au BufRead,BufNewFile *.scss set filetype=scss
 
@@ -174,7 +174,7 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Bitstream\ Vera\ Sans\ Mono:h14
   else
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h14:cDEFAULT
+    set guifont=Hack:h12:cANSI:qDRAFT
   endif
 endif
 
