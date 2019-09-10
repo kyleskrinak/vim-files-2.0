@@ -2,4 +2,5 @@
 .netrwhist
 !bundle/Vundle.vim
 bundle/*
+plugged/*
 
